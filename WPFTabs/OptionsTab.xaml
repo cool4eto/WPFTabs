@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="WPFTabs.OptionsTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFTabs"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel Orientation="Vertical" Margin="10" Width="500">
+        <DockPanel>
+            <TextBlock Text="User: "></TextBlock>
+            <TextBox></TextBox>
+        </DockPanel>
+
+        <DockPanel LastChildFill="True" >
+            <TextBlock Text="Language: "/>
+            <ComboBox>
+                <ComboBoxItem>Dansk</ComboBoxItem>
+                <ComboBoxItem>Nederlands</ComboBoxItem>
+                <ComboBoxItem>English(UK)</ComboBoxItem>
+                <ComboBoxItem IsSelected="True">English(US)</ComboBoxItem>
+                <ComboBoxItem>Suomi</ComboBoxItem>
+                <ComboBoxItem>Français (France)</ComboBoxItem>
+                <ComboBoxItem>Deutsch (Deutschland)</ComboBoxItem>
+                <ComboBoxItem>Italiano</ComboBoxItem>
+                <ComboBoxItem>Svenska</ComboBoxItem>
+            </ComboBox>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text="Theme: "/>
+            <ComboBox>
+                <ComboBoxItem IsSelected="True">Light</ComboBoxItem>
+                <ComboBoxItem>Dark</ComboBoxItem>
+            </ComboBox>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text="Tab Truncation: "/>
+            <ComboBox>
+                <ComboBoxItem IsSelected="True">Start</ComboBoxItem>
+                <ComboBoxItem>End</ComboBoxItem>
+            </ComboBox>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="True" Content="Show Full-Screen Crosshair"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text="Startup Mode: "/>
+            <ComboBox>
+                <ComboBoxItem>Markup</ComboBoxItem>
+                <ComboBoxItem>View</ComboBoxItem>
+                <ComboBoxItem IsSelected="True">Last Used</ComboBoxItem>
+            </ComboBox>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text="Open PDF on Startrup: "/>
+            <TextBox MinWidth="300" Margin="0,0,5,0"></TextBox>
+            <Button>Browse</Button>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="True" Content="Toggle Full Screen with View Mode"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="True" Content="Reopen Files from Last Session on Startup"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="True" Content="Open Home Page in Web Tab on Startup"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="True" Content="Show Recent Files on Startup"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="True" Content="Help Bluebeam improve its products and services by &#x0a; automaticly sending usage data"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <Button Content="Reset Hidden Messages" IsEnabled="False"></Button>
+            <TextBlock Text=""/>
+        </DockPanel>
+    </StackPanel>
+</UserControl>
