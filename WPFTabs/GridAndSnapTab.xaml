@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="WPFTabs.GridAndSnapTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFTabs"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <local:BooleanOrConverter x:Key="booleanOrConverter" />
+    </UserControl.Resources>
+    <StackPanel Orientation="Vertical" Margin="10" Width="500">
+        <DockPanel>
+            <TextBlock Text="Startup Mode: "/>
+            <ComboBox>
+                <ComboBoxItem>Markup</ComboBoxItem>
+                <ComboBoxItem>View</ComboBoxItem>
+                <ComboBoxItem IsSelected="True">Last Used</ComboBoxItem>
+            </ComboBox>
+        </DockPanel>
+
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox Content="Show Grid"/>
+        </DockPanel>
+
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox Content="Snap to Grid"/>
+        </DockPanel>
+
+        <DockPanel>
+            <TextBlock Text="Grid Spacing: "/>
+            <Grid Height="30">
+                <TextBox x:Name="part_TextBox" Text="{Binding Value,ElementName=part_Scrollbar,StringFormat={}{0:F4},Mode=TwoWay}" MaxLength="11" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="30" Margin="20,0,0,0" MinWidth="60" />
+                <ScrollBar x:Name="part_Scrollbar" Orientation="Vertical" Minimum="0.01" Maximum="5" Value="0.25" BorderBrush="{x:Null}" SmallChange="0.1" Height="30" VerticalAlignment="Stretch" Grid.Column="1" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                    <ScrollBar.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ScrollBar.RenderTransform>
+                </ScrollBar>
+            </Grid>
+            <TextBlock/>
+        </DockPanel>
+
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox Name="ContentSnap" Content="Snap to Content"/>
+        </DockPanel>
+
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox Name="MarkupSnap" Content="Snap to Markup"/>
+        </DockPanel>
+
+        <StackPanel>
+            <StackPanel.IsEnabled>
+                <MultiBinding Converter="{StaticResource booleanOrConverter}">
+                    <Binding ElementName="ContentSnap" Path="IsChecked" />
+                    <Binding ElementName="MarkupSnap" Path="IsChecked"  />
+                </MultiBinding>
+            </StackPanel.IsEnabled>
+
+            <DockPanel>
+                <TextBlock Text=""/>
+                <CheckBox IsChecked="True" Content="Snap to Lines"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBlock Text=""/>
+                <CheckBox IsChecked="True" Content="Snap to Curves"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBlock Text=""/>
+                <CheckBox IsChecked="True" Content="Snap to Mid-points"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBlock Text=""/>
+                <CheckBox IsChecked="True" Content="Snap to End-points"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBlock Text=""/>
+                <CheckBox IsChecked="True" Content="Snap to Intersections"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBlock Text=""/>
+                <CheckBox IsChecked="True" Content="Snap to Page Boundaries"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBlock Text=""/>
+                <CheckBox IsChecked="True" Content="Snap to Tyny Line Segments"/>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBlock Text="Sensitivity: "/>
+                <Grid Height="30">
+                    <TextBox x:Name="Sensitivity_TextBox" Text="{Binding Value,ElementName=Sensitivity_Scrollbar,StringFormat={}{0},Mode=TwoWay}" MaxLength="11" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="30" Margin="20,0,0,0" MinWidth="60" />
+                    <ScrollBar x:Name="Sensitivity_Scrollbar" Orientation="Vertical" Minimum="5" Maximum="25" Value="10" BorderBrush="{x:Null}" SmallChange="1" Height="30" VerticalAlignment="Stretch" Grid.Column="1" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                        <ScrollBar.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="180"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </ScrollBar.RenderTransform>
+                    </ScrollBar>
+                </Grid>
+                <TextBlock/>
+            </DockPanel>
+
+        </StackPanel>
+    </StackPanel>
+</UserControl>

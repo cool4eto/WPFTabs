@@ -5,52 +5,37 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFTabs"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"  >
+
+    <UserControl.Resources>
+        <local:OptionsViewModel x:Key="vm"></local:OptionsViewModel>
+    </UserControl.Resources>
+
     <StackPanel Orientation="Vertical" Margin="10" Width="500">
         <DockPanel>
             <TextBlock Text="User: "></TextBlock>
-            <TextBox></TextBox>
+            <TextBox Text="{Binding options.UserName, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
         </DockPanel>
 
-        <DockPanel LastChildFill="True" >
+        <DockPanel LastChildFill="True" DataContext = "{Binding Source={StaticResource vm}}" >
             <TextBlock Text="Language: "/>
-            <ComboBox>
-                <ComboBoxItem>Dansk</ComboBoxItem>
-                <ComboBoxItem>Nederlands</ComboBoxItem>
-                <ComboBoxItem>English(UK)</ComboBoxItem>
-                <ComboBoxItem IsSelected="True">English(US)</ComboBoxItem>
-                <ComboBoxItem>Suomi</ComboBoxItem>
-                <ComboBoxItem>Français (France)</ComboBoxItem>
-                <ComboBoxItem>Deutsch (Deutschland)</ComboBoxItem>
-                <ComboBoxItem>Italiano</ComboBoxItem>
-                <ComboBoxItem>Svenska</ComboBoxItem>
-            </ComboBox>
+            <ComboBox ItemsSource="{Binding Path = options.Languages}" SelectedItem="{Binding Path=SelectedLanguage}" DisplayMemberPath="Name"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text="Theme: "/>
-            <ComboBox>
-                <ComboBoxItem IsSelected="True">Light</ComboBoxItem>
-                <ComboBoxItem>Dark</ComboBoxItem>
-            </ComboBox>
+            <ComboBox ItemsSource="{Binding Path = options.Themes}" SelectedItem="{Binding Path=SelectedTheme}"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text="Tab Truncation: "/>
-            <ComboBox>
-                <ComboBoxItem IsSelected="True">Start</ComboBoxItem>
-                <ComboBoxItem>End</ComboBoxItem>
-            </ComboBox>
+            <ComboBox ItemsSource="{Binding Path = options.TabTruncation}" SelectedItem="{Binding Path = SelectedTabTruncation}"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox IsChecked="True" Content="Show Full-Screen Crosshair"/>
+            <CheckBox IsChecked="{Binding Path = options.FullScreenCrosshair}" Content="Show Full-Screen Crosshair"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text="Startup Mode: "/>
-            <ComboBox>
-                <ComboBoxItem>Markup</ComboBoxItem>
-                <ComboBoxItem>View</ComboBoxItem>
-                <ComboBoxItem IsSelected="True">Last Used</ComboBoxItem>
-            </ComboBox>
+            <ComboBox ItemsSource="{Binding Path = options.StartupMode}" SelectedItem = "{Binding Path = SelectedStartupMode}"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text="Open PDF on Startrup: "/>
@@ -59,23 +44,23 @@
         </DockPanel>
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox IsChecked="True" Content="Toggle Full Screen with View Mode"/>
+            <CheckBox IsChecked="{Binding Path = options.ToggleFullScreen}" Content="Toggle Full Screen with View Mode"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox IsChecked="True" Content="Reopen Files from Last Session on Startup"/>
+            <CheckBox IsChecked="{Binding Path = options.ReopenFiles}" Content="Reopen Files from Last Session on Startup"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox IsChecked="True" Content="Open Home Page in Web Tab on Startup"/>
+            <CheckBox IsChecked="{Binding Path = options.OpenHomePage}" Content="Open Home Page in Web Tab on Startup"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox IsChecked="True" Content="Show Recent Files on Startup"/>
+            <CheckBox IsChecked="{Binding Path = options.ShowRecent}" Content="Show Recent Files on Startup"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox IsChecked="True" Content="Help Bluebeam improve its products and services by &#x0a; automaticly sending usage data"/>
+            <CheckBox IsChecked="{Binding Path = options.HelpBluebeam}" Content="Help Bluebeam improve its products and services by &#x0a; automaticly sending usage data"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text=""/>

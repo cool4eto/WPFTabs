@@ -16,17 +16,13 @@ using System.Windows.Shapes;
 namespace WPFTabs
 {
     /// <summary>
-    /// Interaction logic for OptionsTab.xaml
+    /// Interaction logic for GridAndSnapTab.xaml
     /// </summary>
-    public partial class OptionsTab : UserControl
+    public partial class GridAndSnapTab : UserControl
     {
-
-        private readonly OptionsViewModel _viewModel;
-        public OptionsTab()
+        public GridAndSnapTab()
         {
             InitializeComponent();
-            _viewModel = new OptionsViewModel();
-            DataContext = _viewModel;
         }
     }
 }

@@ -59,6 +59,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GridAndSnapTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -71,6 +75,10 @@
     <Compile Include="DocumentTab.xaml.cs">
       <DependentUpon>DocumentTab.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GridAndSnapTab.xaml.cs">
+      <DependentUpon>GridAndSnapTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Language.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -88,9 +96,11 @@
     <Compile Include="NavigationTab.xaml.cs">
       <DependentUpon>NavigationTab.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Options.cs" />
     <Compile Include="OptionsTab.xaml.cs">
       <DependentUpon>OptionsTab.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OptionsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
