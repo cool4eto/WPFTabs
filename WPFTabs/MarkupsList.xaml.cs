@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace WPFTabs
 {
     /// <summary>
-    /// Interaction logic for OptionsTab.xaml
+    /// Interaction logic for MarkupsList.xaml
     /// </summary>
-    public partial class OptionsTab : UserControl
+    public partial class MarkupsList : UserControl
     {
-
-        // It's better to be set in the xaml file
-        //private readonly OptionsViewModel _viewModel;
-        public OptionsTab()
+        public MarkupsList()
         {
             InitializeComponent();
-            /*_viewModel = new OptionsViewModel();
-            DataContext = _viewModel;*/
         }
     }
 }

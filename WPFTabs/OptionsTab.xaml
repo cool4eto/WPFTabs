@@ -11,6 +11,10 @@
         <local:OptionsViewModel x:Key="vm"></local:OptionsViewModel>
     </UserControl.Resources>
 
+    <UserControl.DataContext>
+        <local:OptionsViewModel/>
+    </UserControl.DataContext>
+
     <StackPanel Orientation="Vertical" Margin="10" Width="500">
         <DockPanel>
             <TextBlock Text="User: "></TextBlock>

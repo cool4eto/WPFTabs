@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace WPFTabs
 {
     /// <summary>
-    /// Interaction logic for OptionsTab.xaml
+    /// Interaction logic for FileAccess.xaml
     /// </summary>
-    public partial class OptionsTab : UserControl
+    public partial class FileAccess : UserControl
     {
-
-        // It's better to be set in the xaml file
-        //private readonly OptionsViewModel _viewModel;
-        public OptionsTab()
+        public FileAccess()
         {
             InitializeComponent();
-            /*_viewModel = new OptionsViewModel();
-            DataContext = _viewModel;*/
         }
     }
 }

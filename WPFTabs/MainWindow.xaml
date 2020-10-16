@@ -67,11 +67,43 @@
                     <TabItem Header="Grid &amp; Snap">
                         <local:GridAndSnapTab/>
                     </TabItem>
-                    <TabItem Header="Spelling"></TabItem>
+                    <TabItem Header="Spelling">
+                        <local:Spelling/>
+                    </TabItem>
 
                 </TabControl>
             </TabItem>
-            <TabItem Header="Interface" />
+            <TabItem Header="Interface" Height="20" VerticalAlignment="Top">
+                <TabControl Margin="20">
+                    <TabItem Header="File Access">
+                        <local:FileAccess/>
+                    </TabItem>
+                    <TabItem Header="Markups List">
+                        <local:MarkupsList/>
+                    </TabItem>
+                    <TabItem Header="Layers">
+                        <StackPanel Orientation="Vertical" Margin="10" Width="500">
+                            <DockPanel>
+                                <TextBlock Text=""/>
+                                <CheckBox Content="Hide Child Layers when Hiding Parent Layers"/>
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock Text=""/>
+                                <CheckBox Content="Show Layers On Page Only"/>
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock Text="Dial: "/>
+                                <ComboBox>
+                                    <ComboBoxItem IsSelected="True">Isolate</ComboBoxItem>
+                                    <ComboBoxItem>Build</ComboBoxItem>
+                                    <ComboBoxItem>Select</ComboBoxItem>
+                                </ComboBox>
+                            </DockPanel>
+                        </StackPanel>
+                    </TabItem>
+
+                </TabControl>
+            </TabItem>
             <TabItem Header="Tools" />
         </TabControl>
     </Grid>
