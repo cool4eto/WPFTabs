@@ -6,27 +6,30 @@
              xmlns:local="clr-namespace:WPFTabs"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <local:SpellingTabViewModel/>
+    </UserControl.DataContext>
     <StackPanel>
         <StackPanel Orientation="Vertical" Margin="10" Width="500">
             <DockPanel>
                 <TextBlock Text=""/>
-                <CheckBox IsChecked="False" Content="Enable Auto-Complete"/>
+                <CheckBox IsChecked="{Binding Path=Spelling.AutoComplete}" Content="Enable Auto-Complete"/>
             </DockPanel>
 
             <DockPanel>
                 <TextBlock Text=""/>
-                <CheckBox IsChecked="False" Name="AutoComplete" Content="Enable Auto-Complete"/>
+                <CheckBox IsChecked="{Binding Path=Spelling.SpellCheck}" Name="SpellCheck" Content="Enable Spell Check"/>
             </DockPanel>
 
             <DockPanel>
                 <TextBlock Text="" Margin="20,0,0,0"/>
-                <CheckBox IsEnabled="{Binding ElementName=AutoComplete, Path=IsChecked}" Content="Enable Vertical Scrollbar on Left">
+                <CheckBox IsEnabled="{Binding ElementName=SpellCheck, Path=IsChecked}" Content="Include Upper Case Words" IsChecked="{Binding Path=Spelling.UpperCaseWords}">
                 </CheckBox>
             </DockPanel>
 
             <DockPanel>
-                <TextBlock Text="Language: "/>
-                <ComboBox ItemsSource="{Binding Path = options.Languages}" SelectedItem="{Binding Path=SelectedLanguage}" DisplayMemberPath="Name"/>
+                <TextBlock Text="Active Dictionary: "/>
+                <ComboBox ItemsSource="{Binding Path = Spelling.Dictionary}" SelectedItem="{Binding Path=SelectedDictionary}"/>
             </DockPanel>
         </StackPanel>
         <StackPanel Margin="20">

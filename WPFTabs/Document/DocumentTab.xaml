@@ -6,52 +6,37 @@
              xmlns:local="clr-namespace:WPFTabs"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <local:DocumentViewModel/>
+    </UserControl.DataContext>
+    
     <StackPanel Orientation="Vertical" Margin="10" Width="510">
         <DockPanel>
             <TextBlock/>
-            <CheckBox IsChecked="True" Content="Enable Document Recovery"/>
+            <CheckBox IsChecked="{Binding Path = Document.DocumentRecovery}" Content="Enable Document Recovery"/>
         </DockPanel>
 
         <DockPanel>
             <TextBlock Text="Save Mode: "/>
-            <ComboBox>
-                <ComboBoxItem>Mentain Revisions</ComboBoxItem>
-                <ComboBoxItem IsSelected="True">Publish Without Revisions</ComboBoxItem>
-                <ComboBoxItem>Publish Compressed (1.5)</ComboBoxItem>
-            </ComboBox>
+            <ComboBox ItemsSource="{Binding Path = Document.SaveMode}" SelectedItem="{Binding Path = SelectedSaveMode}"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text="Page Layout: "/>
-            <ComboBox>
-                <ComboBoxItem>Single Page</ComboBoxItem>
-                <ComboBoxItem>Continuous</ComboBoxItem>
-                <ComboBoxItem>Side-by-Side</ComboBoxItem>
-                <ComboBoxItem>Continuous Side-by-Side</ComboBoxItem>
-                <ComboBoxItem>Document Based</ComboBoxItem>
-                <ComboBoxItem IsSelected="True">Auto Detect by Page Size</ComboBoxItem>
-            </ComboBox>
+            <ComboBox ItemsSource="{Binding Path=Document.PageLayout}" SelectedItem="{Binding Path =SelectedPageLayout}"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text="Single Display: "/>
-            <ComboBox>
-                <ComboBoxItem IsSelected="True">Fit Page</ComboBoxItem>
-                <ComboBoxItem>Fit Width</ComboBoxItem>
-                <ComboBoxItem>Actual Size</ComboBoxItem>
-            </ComboBox>
+            <ComboBox ItemsSource="{Binding Path = Document.SingleDisplay}" SelectedItem = "{Binding Path=SelectedSingleDisplay}"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text="Cintinuous Display: "/>
-            <ComboBox>
-                <ComboBoxItem>Fit Page</ComboBoxItem>
-                <ComboBoxItem IsSelected="True">Fit Width</ComboBoxItem>
-                <ComboBoxItem>Actual Size</ComboBoxItem>
-            </ComboBox>
+            <ComboBox ItemsSource="{Binding Path=Document.ContinuousDisplay}" SelectedItem="{Binding Path=SelectedContinuousDisplay}"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text="Maxumum Zoom: "/>
             <Grid Height="30">
                 <TextBox x:Name="part_TextBox" Text="{Binding Value,ElementName=part_Scrollbar,StringFormat={}{0}%,Mode=TwoWay}" MaxLength="11" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="30" Margin="20,0,0,0" MinWidth="60"/>
-                <ScrollBar x:Name="part_Scrollbar" Orientation="Vertical" Minimum="6400" Maximum="12800" BorderBrush="{x:Null}" SmallChange="100" Height="30" VerticalAlignment="Stretch" Grid.Column="1" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                <ScrollBar x:Name="part_Scrollbar" Value="{Binding Path=Document.MaximumZoom}" Orientation="Vertical" Minimum="6400" Maximum="12800" BorderBrush="{x:Null}" SmallChange="100" Height="30" VerticalAlignment="Stretch" Grid.Column="1" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
                     <ScrollBar.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -66,27 +51,27 @@
         </DockPanel>
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox IsChecked="True" Content="Rotate all Pages by Default"/>
+            <CheckBox IsChecked="{Binding Path=Document.RotateAllPages}" Content="Rotate all Pages by Default"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox IsChecked="True" Content="Automatically Reorder Bookmarks"/>
+            <CheckBox IsChecked="{Binding Path=Document.AutomaticlyReorderBookmarks}" Content="Automatically Reorder Bookmarks"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox IsChecked="True" Content="Redirect Links and Bookmarks when Inserting Pages with Slip Sheet"/>
+            <CheckBox IsChecked="{Binding Path=Document.RedirectLinks}" Content="Redirect Links and Bookmarks when Inserting Pages with Slip Sheet"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox IsChecked="True" Content="Prompt User if File is Locked"/>
+            <CheckBox IsChecked="{Binding Path=Document.PromptUserForLockedFile}" Content="Prompt User if File is Locked"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox IsChecked="True" Content="Find Hyperlinks in PDF Content"/>
+            <CheckBox IsChecked="{Binding Path=Document.FindHyperlinks}" Content="Find Hyperlinks in PDF Content"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox IsChecked="True" Content="Remember Last Page"/>
+            <CheckBox IsChecked="{Binding Path=Document.RememberLastPage}" Content="Remember Last Page"/>
         </DockPanel>
     </StackPanel>
 </UserControl>

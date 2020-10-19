@@ -55,16 +55,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Document\Document.cs" />
+    <Compile Include="Document\DocumentViewModel.cs" />
     <Compile Include="FileAccess.xaml.cs">
       <DependentUpon>FileAccess.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GridAndSnap\GridAndSnap.cs" />
+    <Compile Include="GridAndSnap\GridAndSnapViewModel.cs" />
     <Compile Include="MarkupsList.xaml.cs">
       <DependentUpon>MarkupsList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Spelling.xaml.cs">
+    <Compile Include="Navigation\Navigation.cs" />
+    <Compile Include="Navigation\NavigationViewModel.cs" />
+    <Compile Include="SpellingTab\SpellingTab.cs" />
+    <Compile Include="SpellingTab\Spelling.xaml.cs">
       <DependentUpon>Spelling.xaml</DependentUpon>
     </Compile>
-    <Page Include="DocumentTab.xaml">
+    <Compile Include="SpellingTab\SpellingTabViewModel.cs" />
+    <Page Include="Document\DocumentTab.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -72,7 +80,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GridAndSnapTab.xaml">
+    <Page Include="GridAndSnap\GridAndSnapTab.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -85,10 +93,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BooleanOrConverter.cs" />
-    <Compile Include="DocumentTab.xaml.cs">
+    <Compile Include="Document\DocumentTab.xaml.cs">
       <DependentUpon>DocumentTab.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GridAndSnapTab.xaml.cs">
+    <Compile Include="GridAndSnap\GridAndSnapTab.xaml.cs">
       <DependentUpon>GridAndSnapTab.xaml</DependentUpon>
     </Compile>
     <Compile Include="Language.cs" />
@@ -100,28 +108,28 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="NavigationTab.xaml">
+    <Page Include="Navigation\NavigationTab.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="OptionsTab.xaml">
+    <Page Include="Options\OptionsTab.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Spelling.xaml">
+    <Page Include="SpellingTab\Spelling.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NavigationTab.xaml.cs">
+    <Compile Include="Navigation\NavigationTab.xaml.cs">
       <DependentUpon>NavigationTab.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Options.cs" />
-    <Compile Include="OptionsTab.xaml.cs">
+    <Compile Include="Options\Options.cs" />
+    <Compile Include="Options\OptionsTab.xaml.cs">
       <DependentUpon>OptionsTab.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OptionsViewModel.cs" />
+    <Compile Include="Options\OptionsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

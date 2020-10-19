@@ -22,12 +22,12 @@ namespace WPFTabs
         public OptionsViewModel()
         {
             options = new Options();
-            fillModel();
+            FillModel();
             SelectionsForStartrup();           
         }
 
         // Puts data in the fields
-        public void fillModel()
+        public void FillModel()
         {
             options.Languages = new List<Language>()
             {

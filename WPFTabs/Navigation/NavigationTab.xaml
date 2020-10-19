@@ -6,34 +6,31 @@
              xmlns:local="clr-namespace:WPFTabs"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <local:NavigationViewModel/>
+    </UserControl.DataContext>
     <StackPanel Orientation="Vertical" Margin="10" Width="500">
 
         <DockPanel>
             <TextBlock Text="Single Page Mode: "/>
-            <ComboBox>
-                <ComboBoxItem>Scroll</ComboBoxItem>
-                <ComboBoxItem IsSelected="True">Zoom</ComboBoxItem>
-            </ComboBox>
+            <ComboBox ItemsSource="{Binding Path=Navigation.SinglePageMode}" SelectedItem="{Binding Path=SelectedSinglePageMode}"/>
         </DockPanel>
 
         <DockPanel>
             <TextBlock Text="Continuous Mode: "/>
-            <ComboBox>
-                <ComboBoxItem IsSelected="True">Scroll</ComboBoxItem>
-                <ComboBoxItem>Zoom</ComboBoxItem>
-            </ComboBox>
+            <ComboBox ItemsSource="{Binding Path=Navigation.ContinuousMode}" SelectedItem="{Binding Path=SelectedContinuousMode}"/>
         </DockPanel>
 
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox Content="Reverse Mouse Wheel when Zooming"/>
+            <CheckBox IsChecked="{Binding Path=Navigation.ReverseMouseWheel}" Content="Reverse Mouse Wheel when Zooming"/>
         </DockPanel>
 
         <DockPanel>
             <TextBlock Text="Sensitivity: "/>
             <Grid Height="30">
                 <TextBox x:Name="part_TextBox" Text="{Binding Value,ElementName=part_Scrollbar,StringFormat={}{0},Mode=TwoWay}" MaxLength="11" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="30" Margin="20,0,0,0" MinWidth="60" />
-                <ScrollBar x:Name="part_Scrollbar" Orientation="Vertical" Minimum="1" Maximum="20" Value="4" BorderBrush="{x:Null}" SmallChange="1" Height="30" VerticalAlignment="Stretch" Grid.Column="1" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                <ScrollBar x:Name="part_Scrollbar" Orientation="Vertical" Minimum="1" Maximum="20" Value="{Binding Path=Navigation.Sensitivity}" BorderBrush="{x:Null}" SmallChange="1" Height="30" VerticalAlignment="Stretch" Grid.Column="1" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
                     <ScrollBar.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -49,11 +46,11 @@
 
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox Name="HorizontalScroll" Content="Enable Horizontal Scrollbar"/>
+            <CheckBox Name="HorizontalScroll" Content="Enable Horizontal Scrollbar" IsChecked="{Binding Path=Navigation.HorizontalScroll}"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text="" Margin="20,0,0,0"/>
-            <CheckBox IsEnabled="{Binding ElementName=HorizontalScroll, Path=IsChecked}" Content="Enable Horizontal Mouse Wheel">
+            <CheckBox IsEnabled="{Binding ElementName=HorizontalScroll, Path=IsChecked}" Content="Enable Horizontal Mouse Wheel" IsChecked="{Binding Path=Navigation.HorizontalMouseWheel}">
                 <CheckBox.Style>
                     <Style TargetType="CheckBox">
                         <Style.Triggers>
@@ -68,11 +65,11 @@
 
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox Name="VerticalScroll" Content="Enable Vertical Scrollbar"/>
+            <CheckBox Name="VerticalScroll" Content="Enable Vertical Scrollbar" IsChecked="{Binding Path=Navigation.VertiaclScrollBar}"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text="" Margin="20,0,0,0"/>
-            <CheckBox IsEnabled="{Binding ElementName=VerticalScroll, Path=IsChecked}" Content="Enable Vertical Scrollbar on Left">
+            <CheckBox IsEnabled="{Binding ElementName=VerticalScroll, Path=IsChecked}" Content="Enable Vertical Scrollbar on Left" IsChecked="{Binding Path=Navigation.VerticalScrollBarOnLeft}">
                 <CheckBox.Style>
                     <Style TargetType="CheckBox">
                         <Style.Triggers>
@@ -87,30 +84,27 @@
 
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox IsChecked="True" Content="Lock Panning in Fit Width"/>
+            <CheckBox IsChecked="{Binding Path=Navigation.LockPanning}" Content="Lock Panning in Fit Width"/>
         </DockPanel>
 
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox Content="Synchronize Views"/>
+            <CheckBox IsChecked="{Binding Path=Navigation.SynchronizeViews}" Content="Synchronize Views"/>
         </DockPanel>
 
         <DockPanel>
             <TextBlock Text="Synchronization Mode: "/>
-            <ComboBox>
-                <ComboBoxItem IsSelected="True">Document</ComboBoxItem>
-                <ComboBoxItem>Page</ComboBoxItem>
-            </ComboBox>
+            <ComboBox ItemsSource="{Binding Path=Navigation.SyncMode}" SelectedItem="{Binding Path=SelectedSync}"/>
         </DockPanel>
 
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox IsChecked="True" Content="Enable 3D Mouse"/>
+            <CheckBox IsChecked="{Binding Path=Navigation.Mouse3D}" Content="Enable 3D Mouse"/>
         </DockPanel>
 
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox Content="Access menus via Keyboard Accelerators"/>
+            <CheckBox IsChecked="{Binding Path=Navigation.KeyboardAccelerators}" Content="Access menus via Keyboard Accelerators"/>
         </DockPanel>
 
     </StackPanel>
