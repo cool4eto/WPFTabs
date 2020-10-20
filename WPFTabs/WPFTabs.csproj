@@ -57,16 +57,50 @@
     </ApplicationDefinition>
     <Compile Include="Document\Document.cs" />
     <Compile Include="Document\DocumentViewModel.cs" />
-    <Compile Include="FileAccess.xaml.cs">
+    <Compile Include="FileAccess\FileAccess.xaml.cs">
       <DependentUpon>FileAccess.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FileAccess\FileAccessModel.cs" />
+    <Compile Include="FileAccess\FileAccessViewModel.cs" />
+    <Compile Include="Forms\Forms.xaml.cs">
+      <DependentUpon>Forms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsModel.cs" />
+    <Compile Include="Forms\FormsViewModel.cs" />
     <Compile Include="GridAndSnap\GridAndSnap.cs" />
     <Compile Include="GridAndSnap\GridAndSnapViewModel.cs" />
-    <Compile Include="MarkupsList.xaml.cs">
+    <Compile Include="Layers\Layers.xaml.cs">
+      <DependentUpon>Layers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\LayersModel.cs" />
+    <Compile Include="Layers\LayersViewModel.cs" />
+    <Compile Include="Markup\Markup.xaml.cs">
+      <DependentUpon>Markup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Markup\MarkupModel.cs" />
+    <Compile Include="Markups List\MarkupsList.xaml.cs">
       <DependentUpon>MarkupsList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Markups List\MarkupsListModel.cs" />
+    <Compile Include="Markups List\MarkupsListViewModel.cs" />
+    <Compile Include="Markup\MarkupViewModel.cs" />
+    <Compile Include="Measure\Measure.xaml.cs">
+      <DependentUpon>Measure.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Measure\MeasureModel.cs" />
+    <Compile Include="Measure\MeasureViewModel.cs" />
     <Compile Include="Navigation\Navigation.cs" />
     <Compile Include="Navigation\NavigationViewModel.cs" />
+    <Compile Include="Signature.xaml.cs">
+      <DependentUpon>Signature.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SignatureModel.cs" />
+    <Compile Include="SignatureViewModel.cs" />
+    <Compile Include="Sketch\Sketch.xaml.cs">
+      <DependentUpon>Sketch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sketch\SketchModel.cs" />
+    <Compile Include="Sketch\SketchViewModel.cs" />
     <Compile Include="SpellingTab\SpellingTab.cs" />
     <Compile Include="SpellingTab\Spelling.xaml.cs">
       <DependentUpon>Spelling.xaml</DependentUpon>
@@ -76,11 +110,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FileAccess.xaml">
+    <Page Include="FileAccess\FileAccess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Forms.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GridAndSnap\GridAndSnapTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Layers\Layers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -104,7 +146,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MarkupsList.xaml">
+    <Page Include="Markup\Markup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Markups List\MarkupsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Measure\Measure.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -113,6 +163,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Options\OptionsTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Signature.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sketch\Sketch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

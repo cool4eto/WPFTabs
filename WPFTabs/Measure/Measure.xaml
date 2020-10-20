@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="WPFTabs.Measure"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFTabs"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <local:MeasureViewModel/>
+    </UserControl.DataContext>
+    <StackPanel Orientation="Vertical" Margin="10" Width="500">
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="{Binding Path=Model.AutomaticlySplitCountMeasurements}" Content="Automatically Split Count Measurements by Space"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text="Dynamic Fill Input: "/>
+            <ComboBox ItemsSource="{Binding Path=Model.DynamicFillInput}" SelectedItem="{Binding Path=SelectedDynamicFillInput}"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="{Binding Path=Model.MomentlyHideMarkups}" Content="Momentarily Hide Markups"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text="Fill Size: "/>
+            <Grid Height="30">
+                <TextBox x:Name="FillSize_TextBox" Text="{Binding Value,ElementName=FillSize_Scrollbar,StringFormat={}{0}%,Mode=TwoWay}" MaxLength="11" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="30" Margin="20,0,0,0" MinWidth="60" />
+                <ScrollBar x:Name="FillSize_Scrollbar" Orientation="Vertical" Minimum="25" Maximum="100" Value="{Binding Path=Model.FillSize}" BorderBrush="{x:Null}" SmallChange="1" Height="30" VerticalAlignment="Stretch" Grid.Column="1" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                    <ScrollBar.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ScrollBar.RenderTransform>
+                </ScrollBar>
+            </Grid>
+            <TextBlock/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text="Fill Speed: "/>
+            <Grid Height="30">
+                <TextBox x:Name="FillSpeed_TextBox" Text="{Binding Value,ElementName=FillSpeed_Scrollbar,StringFormat={}{0}%,Mode=TwoWay}" MaxLength="11" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="30" Margin="20,0,0,0" MinWidth="60" />
+                <ScrollBar x:Name="FillSpeed_Scrollbar" Orientation="Vertical" Minimum="0" Maximum="100" Value="{Binding Path=Model.FillSpeed}" BorderBrush="{x:Null}" SmallChange="1" Height="30" VerticalAlignment="Stretch" Grid.Column="1" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                    <ScrollBar.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ScrollBar.RenderTransform>
+                </ScrollBar>
+            </Grid>
+            <TextBlock/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text="Boundary Size: "/>
+            <Grid Height="30">
+                <TextBox x:Name="BoundarySize_TextBox" Text="{Binding Value,ElementName=BoundarySize_Scrollbar,StringFormat={}{0}%,Mode=TwoWay}" MaxLength="11" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="30" Margin="20,0,0,0" MinWidth="60" />
+                <ScrollBar x:Name="BoundarySize_Scrollbar" Orientation="Vertical" Minimum="25" Maximum="100" Value="{Binding Path=Model.BoundarySize}" BorderBrush="{x:Null}" SmallChange="1" Height="30" VerticalAlignment="Stretch" Grid.Column="1" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                    <ScrollBar.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ScrollBar.RenderTransform>
+                </ScrollBar>
+            </Grid>
+            <TextBlock/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text="Edge Sensitivity: "/>
+            <ComboBox ItemsSource="{Binding Path=Model.EdgeSensitivity}" SelectedItem="{Binding Path=SelectedEdgeSensitivity}"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="{Binding Path=Model.LegacyPersist}" Content="Use legacy persist behavior for Subject and Label"/>
+        </DockPanel>
+    </StackPanel>
+</UserControl>

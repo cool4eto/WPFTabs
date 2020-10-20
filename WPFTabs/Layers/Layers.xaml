@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="WPFTabs.Layers"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFTabs"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <local:LayersViewModel/>
+    </UserControl.DataContext>
+    <StackPanel Orientation="Vertical" Margin="10" Width="500">
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="{Binding Path=Model.HideChildLayers}" Content="Hide Child Layers when Hiding Parent Layers"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="{Binding Path=Model.ShowLayersOnPageOnly}" Content="Show Layers On Page Only"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text="Dial: "/>
+            <ComboBox ItemsSource="{Binding Path=Model.Dials}" SelectedItem="{Binding Path=SelectedDial}"/>
+        </DockPanel>
+    </StackPanel>
+
+</UserControl>

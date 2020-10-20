@@ -76,35 +76,35 @@
             <TabItem Header="Interface" Height="20" VerticalAlignment="Top">
                 <TabControl Margin="20">
                     <TabItem Header="File Access">
-                        <local:FileAccess/>
+                        <local:FileAccessTabModel/>
                     </TabItem>
                     <TabItem Header="Markups List">
                         <local:MarkupsList/>
                     </TabItem>
                     <TabItem Header="Layers">
-                        <StackPanel Orientation="Vertical" Margin="10" Width="500">
-                            <DockPanel>
-                                <TextBlock Text=""/>
-                                <CheckBox Content="Hide Child Layers when Hiding Parent Layers"/>
-                            </DockPanel>
-                            <DockPanel>
-                                <TextBlock Text=""/>
-                                <CheckBox Content="Show Layers On Page Only"/>
-                            </DockPanel>
-                            <DockPanel>
-                                <TextBlock Text="Dial: "/>
-                                <ComboBox>
-                                    <ComboBoxItem IsSelected="True">Isolate</ComboBoxItem>
-                                    <ComboBoxItem>Build</ComboBoxItem>
-                                    <ComboBoxItem>Select</ComboBoxItem>
-                                </ComboBox>
-                            </DockPanel>
-                        </StackPanel>
+                        <local:Layers/>
                     </TabItem>
-
                 </TabControl>
             </TabItem>
-            <TabItem Header="Tools" />
+            <TabItem Header="Tools">
+                <TabControl Margin="20">
+                    <TabItem Header="Markup">
+                        <local:Markup/>
+                    </TabItem>
+                    <TabItem Header="Measure">
+                        <local:Measure/>
+                    </TabItem>
+                    <TabItem Header="Sketch">
+                        <local:Sketch/>
+                    </TabItem>
+                    <TabItem Header="Forms">
+                        <local:Forms/>
+                    </TabItem>
+                    <TabItem Header="Signature">
+                        <local:Signature/>
+                    </TabItem>
+                </TabControl>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

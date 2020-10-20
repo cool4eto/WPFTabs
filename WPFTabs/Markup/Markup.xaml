@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="WPFTabs.Markup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFTabs"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <local:MarkupViewModel/>
+    </UserControl.DataContext>
+    <StackPanel Orientation="Vertical" Margin="10" Width="500">
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="{Binding Path=Model.DinamiclySetAsDefault}" Content="Dinamically Set as Default Properties"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="{Binding Path=Model.ReuseTools}" Content="Reuse Tools"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="{Binding Path=Model.AutosizeTextBoxAndCalloutMarkups}" Content="Autosize Text Box and Callout Markups"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="{Binding Path=Model.ScaleApperance}" Content="Scale Apperance Properties for Grouped Markups"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="{Binding Path=Model.RetainLayerInfo}" Content="Retail Layer Information when copying Markups"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="{Binding Path=Model.EmbedFonts}" Content="Embed Fonts"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="{Binding Path=Model.ShowAuthorAndDate}" Content="Show Author and Date in Pop-Ups"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="{Binding Path=Model.PrintPopUps}" Content="Print Pop-Ups"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text="Pop-Up Opacity: "/>
+            <Grid Height="30">
+                <TextBox x:Name="PopUpOpacity_TextBox" Text="{Binding Value,ElementName=PopUpOpacity_Scrollbar,StringFormat={}{0}%,Mode=TwoWay}" MaxLength="11" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="30" Margin="20,0,0,0" MinWidth="60" />
+                <ScrollBar x:Name="PopUpOpacity_Scrollbar" Orientation="Vertical" Minimum="10" Maximum="100" Value="{Binding Path=Model.PopupOpacity}" BorderBrush="{x:Null}" SmallChange="10" Height="30" VerticalAlignment="Stretch" Grid.Column="1" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                    <ScrollBar.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ScrollBar.RenderTransform>
+                </ScrollBar>
+            </Grid>
+            <TextBlock/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="{Binding Path=Model.CopyHiglilitedText}" Content="Copy Highlited Text into Markup Comment"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text="Default Image Encoding: "/>
+            <ComboBox ItemsSource="{Binding Path=Model.DefaultImageEncoding}" SelectedItem="{Binding Path=SelectedDefaultImageEncoding}"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text="Drag Behavior for Shapes: "/>
+            <ComboBox ItemsSource="{Binding Path=Model.DragBehaviorForShapes}" SelectedItem="{Binding Path=SelectedDragBehaviorForShapes}"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text="Snapshot Resolution: "/>
+            <ComboBox ItemsSource="{Binding Path=Model.SnapShotRes}" SelectedItem="{Binding Path=SelectedSnapShotRes}"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="{Binding Path=Model.TakeVectorSnapshots}" Content="Take Vector Snapshots"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="{Binding Path=Model.IncludeMarkupInSnapshots}" Content="Include Markups in Snapshots"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text=""/>
+            <CheckBox IsChecked="{Binding Path=Model.IncludeMakrupsInSnapshotsFromSpaces}" Content="Include Markups in Snapshots from Spaces"/>
+        </DockPanel>
+    </StackPanel>
+</UserControl>

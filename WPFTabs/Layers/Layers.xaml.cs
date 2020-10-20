@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WPFTabs
 {
     /// <summary>
-    /// Interaction logic for FileAccess.xaml
+    /// Interaction logic for Layers.xaml
     /// </summary>
-    public partial class FileAccess : UserControl
+    public partial class Layers : UserControl
     {
-        public FileAccess()
+        public Layers()
         {
             InitializeComponent();
         }

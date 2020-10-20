@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WPFTabs.FileAccess"
+﻿<UserControl x:Class="WPFTabs.FileAccessTabModel"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,17 +6,20 @@
              xmlns:local="clr-namespace:WPFTabs"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <local:FileAccessViewModel/>
+    </UserControl.DataContext>
     <StackPanel>
         <StackPanel Orientation="Vertical" Margin="10" Width="500">
             <DockPanel>
                 <TextBlock Text=""/>
-                <CheckBox Name="VerticalScroll" Content="Enable Recent Files"/>
+                <CheckBox IsChecked="{Binding Path=Model.RecentFiles}" Name="VerticalScroll" Content="Enable Recent Files"/>
             </DockPanel>
             <DockPanel>
                 <TextBlock Text="Items In Recent: "/>
                 <Grid Height="30">
                     <TextBox x:Name="ItemsInRecent_TextBox" Text="{Binding Value,ElementName=ItemsInRecent_Scrollbar,StringFormat={}{0},Mode=TwoWay}" MaxLength="11" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="30" Margin="20,0,0,0" MinWidth="60" />
-                    <ScrollBar x:Name="ItemsInRecent_Scrollbar" Orientation="Vertical" Minimum="0" Maximum="100" Value="20" BorderBrush="{x:Null}" SmallChange="1" Height="30" VerticalAlignment="Stretch" Grid.Column="1" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                    <ScrollBar x:Name="ItemsInRecent_Scrollbar" Orientation="Vertical" Minimum="0" Maximum="100" Value="{Binding Path=Model.ItemsInRecent}" BorderBrush="{x:Null}" SmallChange="1" Height="30" VerticalAlignment="Stretch" Grid.Column="1" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
                         <ScrollBar.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -31,24 +34,24 @@
             </DockPanel>
             <DockPanel>
                 <TextBlock Text=""/>
-                <CheckBox Content="Show preview of PDF"/>
+                <CheckBox IsChecked="{Binding Path=Model.PdfPreview}" Content="Show preview of PDF"/>
             </DockPanel>
             <DockPanel LastChildFill="False">
                 <TextBlock Text="Recent history limit: "/>
-                <ComboBox MinWidth="60"/>
+                <ComboBox MinWidth="60" ItemsSource="{Binding Path=Model.RecentHistoryLimit}" SelectedItem="{Binding Path=SelectedHistoryLimit}"/>
                 <Button Margin="20,0,0,0">Clear</Button>
             </DockPanel>
             <DockPanel>
                 <TextBlock Text=""/>
-                <CheckBox Content="Open and save files to DMS from toolbar only"/>
+                <CheckBox IsChecked="{Binding Path=Model.OpenAndSaveFilesToDMS}" Content="Open and save files to DMS from toolbar only"/>
             </DockPanel>
             <DockPanel>
                 <TextBlock Text=""/>
-                <CheckBox Content="Always Show Selection Dialog"/>
+                <CheckBox IsChecked="{Binding Path=Model.AlwaysShowSelectionDIalog}" Content="Always Show Selection Dialog"/>
             </DockPanel>
             <DockPanel>
                 <TextBlock Text=""/>
-                <CheckBox Content="Enable Batch Check-in when closing Sets"/>
+                <CheckBox IsChecked="{Binding Path=Model.BatchCheckIn}" Content="Enable Batch Check-in when closing Sets"/>
             </DockPanel>
             <DockPanel>
                 <TextBlock/>

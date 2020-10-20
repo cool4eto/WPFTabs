@@ -6,32 +6,35 @@
              xmlns:local="clr-namespace:WPFTabs"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <local:MarkupsListViewModel/>
+    </UserControl.DataContext>
     <StackPanel Orientation="Vertical" Margin="10" Width="500">
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox Content="Zoom Fit Markups when selected"/>
+            <CheckBox IsChecked="{Binding Path=Model.ZoomFitMarkups}" Content="Zoom Fit Markups when selected"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox Content="Show Measurement Value for Dominant Markup Only"/>
+            <CheckBox IsChecked="{Binding Path=Model.ShowMeasurementValueforDominantOnly}" Content="Show Measurement Value for Dominant Markup Only"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox Content="Use Rich Text for Comments"/>
+            <CheckBox IsChecked="{Binding Path=Model.RichTextForComets}" Content="Use Rich Text for Comments"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox Content="Wrap Comment Text"/>
+            <CheckBox IsChecked="{Binding Path=Model.WrapCommentText}" Content="Wrap Comment Text"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text=""/>
-            <CheckBox Content="Exclude Filtered Markups on Export"/>
+            <CheckBox IsChecked="{Binding Path=Model.ExcludeFillteredMarkups}" Content="Exclude Filtered Markups on Export"/>
         </DockPanel>
         <DockPanel>
             <TextBlock Text="Filtered Annotation Dim: "/>
             <Grid Height="30">
                 <TextBox x:Name="FilteredAnnotation_TextBox" Text="{Binding Value,ElementName=FilteredAnnotation_Scrollbar,StringFormat={}{0}%,Mode=TwoWay}" MaxLength="11" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="30" Margin="20,0,0,0" MinWidth="60" />
-                <ScrollBar x:Name="FilteredAnnotation_Scrollbar" Orientation="Vertical" Minimum="0" Maximum="100" Value="40" BorderBrush="{x:Null}" SmallChange="5" Height="30" VerticalAlignment="Stretch" Grid.Column="1" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                <ScrollBar x:Name="FilteredAnnotation_Scrollbar" Orientation="Vertical" Minimum="0" Maximum="100" Value="{Binding Path=Model.FilteredAnnotationDim}" BorderBrush="{x:Null}" SmallChange="5" Height="30" VerticalAlignment="Stretch" Grid.Column="1" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
                     <ScrollBar.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
